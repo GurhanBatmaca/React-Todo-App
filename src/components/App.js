@@ -2,29 +2,46 @@ import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Footer from './Footer';
 import Main from './Main';
-import Header from './Header';
 
 function App() {
 
-  const [list, setList] = useState([]);
-  const [listSon, setListSon] = useState([])
-  
+  const [inputValue, setInputValue] = useState("");
+  const [form, setForm] = useState([]);
+
+  const onInput = (e) => {
+    setInputValue([e.target.value]);
+  };
+
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    setForm([...form,{text:inputValue.toString(), id:form.length +1, active:true}]);
+  };
+
   useEffect(() => {
-    console.log(list);
-    list.forEach((item) => {
-      item.forEach((i) => {
-        setListSon([...listSon,i])
-      })
-    })
-    console.log(listSon);
-  }, [list])
+    // console.log(form);
+    setInputValue("");
+  }, [form]);
 
   return (
-    <div className="App">
+    <div className="App container todo">
 
-      <Header listProp={list} setListProp={setList} />
+      <header>
+        <h1>TODOS</h1>
+        <form onSubmit={onSubmitForm}>
+            <input
+                value={inputValue}
+                className='w-100 p-3'
+                onChange={onInput} 
+                placeholder="What needs to be done?"
+                autoFocus
+            />
+        </form>       
+      </header>
 
-      <Main />
+      <Main
+       formProp={form}
+       setFormProp={setForm}
+      />
 
       <Footer />
 
