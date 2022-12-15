@@ -32,7 +32,7 @@ const Main = ( {formProp, setFormProp, showProp} ) => {
 
 
   useEffect(() => {
-    setShowTodo(showList)
+    setShowTodo(showList);
     if(showProp=="all") {
       console.log("all")
       showList = formProp.filter((item) => {
