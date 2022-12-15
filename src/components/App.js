@@ -7,6 +7,7 @@ function App() {
 
   const [inputValue, setInputValue] = useState("");
   const [form, setForm] = useState([]);
+  const [show,setShow] = useState("all")
 
   const onInput = (e) => {
     setInputValue([e.target.value]);
@@ -41,9 +42,15 @@ function App() {
       <Main
        formProp={form}
        setFormProp={setForm}
+       showProp={show}
       />
 
-      <Footer />
+      <Footer 
+        formProp={form}
+        setFormProp={setForm}
+        showProp={show}
+        setShowProp={setShow}
+      />
 
     </div>
   );
