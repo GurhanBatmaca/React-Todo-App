@@ -19,7 +19,6 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log(form);
     setInputValue("");
   }, [form]);
 
