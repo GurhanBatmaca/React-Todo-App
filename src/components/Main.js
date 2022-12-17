@@ -13,6 +13,10 @@ const Main = ( {formProp, setFormProp, showProp} ) => {
     return item.id !== deleteItem;
   });
 
+  useEffect(() => {
+    setFormProp(onAfterDeletedItems);
+  },[deleteItem]);
+
   const onCheck = (item) => {
     formProp.map((i) => {
       if(i.id == item) {
@@ -20,10 +24,6 @@ const Main = ( {formProp, setFormProp, showProp} ) => {
       }
     })
   };
-
-  useEffect(() => {
-    setFormProp(onAfterDeletedItems);
-  },[deleteItem]);
 
   let showList = formProp.filter( item => item);
 
@@ -55,6 +55,7 @@ const Main = ( {formProp, setFormProp, showProp} ) => {
                 <span className='list-span'>
                   <input
                     onChange={(()=> {onCheck(item.id)})}
+                    className="toggle-all"
                     type="checkbox"
                     id={item.id}
                   />

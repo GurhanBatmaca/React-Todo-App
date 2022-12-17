@@ -25,12 +25,12 @@ function App() {
   return (
     <div className="App container todo">
 
-      <header>
+      <header className='todoapp'>
         <h1>TODOS</h1>
         <form onSubmit={onSubmitForm}>
             <input
                 value={inputValue}
-                className='w-100 p-3'
+                className='w-100 p-3 new-todo'
                 onChange={onInput} 
                 placeholder="What needs to be done?"
                 autoFocus
