@@ -1,3 +1,8 @@
+#root {
+	display: flex;
+	justify-content: center;
+}
+
 .App {
   text-align: center;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -31,7 +36,6 @@ body {
 	background: #f5f5f5;
 	color: #4d4d4d;
 	min-width: 230px;
-	/* max-width: 550px; */
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -43,6 +47,8 @@ body {
 }
 
 .todo {
+	padding: 0;
+	border: 1px solid black;	
 	background: #fff;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -54,7 +60,7 @@ body {
 	font-size: 100px;
 	font-weight: 100;
 	text-align: center;
-	color: rgba(175, 47, 47, 0.15);
+	color: rgba(49, 54, 194, 0.306);
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
@@ -96,12 +102,6 @@ ul,li {
 
 form input {
   font-size: 40px;
-}
-
-.todo {
-  width: 40%;
-  padding: 0;
-  border: 1px solid black;
 }
 
 .btn-clear {

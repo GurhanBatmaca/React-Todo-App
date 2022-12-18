@@ -25,21 +25,19 @@ const Main = ( {formProp, setFormProp, showProp} ) => {
     })
   };
 
-  let showList = formProp.filter( item => item);
-
   useEffect(() => {
     if(showProp=="all") {
-      showList = formProp.filter((item) => {
+      let showList = formProp.filter((item) => {
         return item.active == true || item.active == false
       })
       setShowTodo(showList);
     } else if(showProp=="acvite") {
-      showList = formProp.filter((item) => {
+      let showList = formProp.filter((item) => {
         return item.active == true
       })
       setShowTodo(showList);
     } else if(showProp=="completed") {
-      showList = formProp.filter((item) => {
+      let showList = formProp.filter((item) => {
         return item.active == false
       })
       setShowTodo(showList);

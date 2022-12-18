@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const Footer = ( {formProp, setFormProp, showProp, setShowProp} ) => {
+const Footer = ( {formProp, setFormProp, setShowProp} ) => {
 
   const [itemCount, setItemCount] = useState(formProp.length);
   const [onClearItems, setOnClearItem] = useState([]);
-  const [inClass, setinClass] = useState("allClass");
+  const [inClass, setInClass] = useState("allClass");
 
   let count = formProp.filter((item) => {
     return item.active == true;
@@ -25,16 +25,16 @@ const Footer = ( {formProp, setFormProp, showProp, setShowProp} ) => {
       return item.active == true;
     })
     setOnClearItem(actives);
-    // setinClass("clicted");
   }
-
-  useEffect(() => {
-    console.log("class değişimi")
-  },[inClass])
 
   useEffect(() => {
     setFormProp(onClearItems);
   }, [onClearItems])
+
+  const clicted = (a,b) => {
+    setShowProp(a);
+    setInClass(b)
+  }
 
   return (
     <footer>
@@ -45,9 +45,9 @@ const Footer = ( {formProp, setFormProp, showProp, setShowProp} ) => {
           <span>{itemCount} item / </span>
           <span>{ActiveItemCount} active item left</span>
         </div>
-        <button className={inClass == "allClass" ? 'clicted' : "" } onClick={() => {setShowProp("all")}}>All</button>
-        <button className={inClass == "acticeClass" ? 'clicted' : "" } onClick={() => {setShowProp("acvite")}}>Active</button>
-        <button className={inClass == "completedClass" ? 'clicted' : "" } onClick={() => {setShowProp("completed")}}>Completed</button>
+        <button className={inClass == "allClass" ? 'clicted' : "" } onClick={() => {clicted("all","allClass")}}>All</button>
+        <button className={inClass == "activeClass" ? 'clicted' : "" } onClick={() => {clicted("acvite","activeClass")}}>Active</button>
+        <button className={inClass == "completedClass" ? 'clicted' : "" } onClick={() => {clicted("completed","completedClass")}}>Completed</button>
         {
           ActiveItemCount > 0 ? <button className="" onClick={clearItems}>Clear completed</button> : null
         }
